@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <record id="action_camp_programs" model="ir.actions.act_window">
+            <field name="name">Програми таборів (Описи та ціни)</field>
+            <field name="res_model">product.template</field>
+            <field name="view_mode">kanban,tree,form</field>
+            <field name="domain">[('is_published', '=', True)]</field>
+        </record>
+
+        <record id="action_camp_shifts" model="ir.actions.act_window">
+            <field name="name">Заїзди (Дати та ліміти місць)</field>
+            <field name="res_model">event.event</field>
+            <field name="view_mode">kanban,tree,form,calendar</field>
+        </record>
+
+        <record id="action_camp_kids" model="ir.actions.act_window">
+            <field name="name">Зареєстровані діти (Квитки)</field>
+            <field name="res_model">event.registration</field>
+            <field name="view_mode">tree,form,kanban</field>
+        </record>
+
+        <menuitem id="menu_campscout_root" 
+                  name="CampScout" 
+                  sequence="5" 
+                  web_icon="campscout_management,static/description/icon.png"/>
+
+        <menuitem id="menu_campscout_programs" name="1. Програми (Описи)" parent="menu_campscout_root" action="action_camp_programs" sequence="10"/>
+        <menuitem id="menu_campscout_shifts" name="2. Заїзди (Дати)" parent="menu_campscout_root" action="action_camp_shifts" sequence="20"/>
+        <menuitem id="menu_campscout_kids" name="3. Списки дітей" parent="menu_campscout_root" action="action_camp_kids" sequence="30"/>
+    </data>
+</odoo>

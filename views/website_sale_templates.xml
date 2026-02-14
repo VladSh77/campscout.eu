@@ -1,0 +1,18 @@
+<odoo>
+    <template id="product_quantity_warning" inherit_id="website_sale.product">
+        <xpath expr="//div[@id='add_to_cart_wrap']" position="before">
+            <t t-set="event" t-value="product.event_ok and request.env['event.event'].search([('product_id', '=', product.id)], limit=1)"/>
+            <t t-if="event and event.seats_limited">
+                <t t-set="seats_left" t-value="event.seats_available"/>
+                <div t-attf-class="alert alert-danger d-flex align-items-center mt-3 border-danger shadow-sm" 
+                     style="border: 2px solid #dc3545 !important; border-radius: 10px; background-color: #fff5f5;">
+                    <span class="fa fa-fire me-2" style="font-size: 1.5rem; color: #dc3545;"></span>
+                    <div>
+                        <strong style="color: #dc3545; font-size: 1.1rem;">🔥 Увага! Залишилося лише <t t-out="int(seats_left)"/> місць!</strong>
+                        <div class="text-muted small">Встигніть забронювати, поки заїзд не закрився.</div>
+                    </div>
+                </div>
+            </t>
+        </xpath>
+    </template>
+</odoo>

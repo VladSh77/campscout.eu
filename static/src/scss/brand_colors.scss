@@ -1,0 +1,16 @@
+:root {
+    --camp-scout-red: #952426;
+    --camp-scout-orange: #CE4C21;
+}
+
+/* Зміна кольору кнопок та навігаційної панелі */
+.navbar.navbar-light.bg-light {
+    background-color: var(--camp-scout-red) !important;
+}
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
+}
+.btn-primary {
+    background-color: var(--camp-scout-orange) !important;
+    border-color: var(--camp-scout-orange) !important;
+}
